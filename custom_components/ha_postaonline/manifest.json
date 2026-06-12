@@ -1,0 +1,11 @@
+{
+  "domain": "ha_postaonline",
+  "name": "PostaOnline",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://github.com/petos/ha_postaonline",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/petos/ha_postaonline/issues",
+  "requirements": ["beautifulsoup4==4.12.3","charset-normalizer<4"],
+  "version": "0.0.1"
+}
