@@ -1,5 +1,5 @@
 {
-  "name": "hacs_postaonline",
+  "name": "ha_postaonline",
   "content_in_root": false,
   "country": ["CZ"],
   "homeassistant": "2023.9.0",

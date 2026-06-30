@@ -13,3 +13,6 @@ MODEL = "Parcel tracking"
 
 CONF_TRACKING_NUMBER = "tracking_number"
 CONF_DESCRIPTION = "description"
+
+
+
