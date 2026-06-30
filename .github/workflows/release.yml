@@ -27,7 +27,7 @@ jobs:
       - name: Validate manifest version
         run: |
           VERSION_TAG=${GITHUB_REF#refs/tags/v}
-          MANIFEST_VERSION=$(jq -r '.version' custom_components/bazos_crawler/manifest.json)
+          MANIFEST_VERSION=$(jq -r '.version' custom_components/*/manifest.json)
           echo "Git tag: $VERSION_TAG"
           echo "Manifest version: $MANIFEST_VERSION"
           if [ "$VERSION_TAG" != "$MANIFEST_VERSION" ]; then
