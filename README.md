@@ -1,5 +1,16 @@
 # PostaOnline
 
+Integrace pro Home Assistant umožňující sledování zásilek České pošty prostřednictvím služby PostaOnline.
+
+Každá sledovaná zásilka je v Home Assistantu reprezentována jako jedno zařízení (Device) obsahující několik senzorů.
+
+## Funkce
+
+- Sledování zásilek České pošty podle podacího čísla
+- Automatická aktualizace stavu zásilky
+- Každá zásilka je vytvořena jako samostatné zařízení
+- Status zásilky je poskytován jako `enum` senzor vhodný pro automatizace
+- Zobrazení místa poslední události
 
 ## Instalace
 - Přes HACS
@@ -14,28 +25,67 @@
   - Po restartu Home Assistenta přidat jako Integraci v Nastavení -> Integrace
 - Ručně:
   - Nahrajte obsah `custom_components/ha_postaonline/` do `/config/custom_components/ha_postaonline/`
+## Konfigurace
+
+Při přidávání integrace jsou zadávány následující údaje:
+
+| Položka | Povinné | Popis |
+|---------|:-------:|-------|
+| Tracking number | ✔ | Podací číslo zásilky České pošty |
+| Description | | Volitelný popis zásilky. Použije se jako název zařízení v Home Assistantu. |
+
+---
 
 ## Senzory
 
+| Senzor | Popis |
+|--------|-------|
+| Status | Aktuální stav zásilky |
+| Location | Místo poslední události |
+
+### Status
+
+Status je implementován jako `enum` senzor.
+
+Možné hodnoty:
+
+- `preparing_to_delivery`
+- `now_delivering`
+- `in_transit`
+- `delivered`
+- `unknown`
+
+To umožňuje snadné vytváření automatizací bez závislosti na přesném textu vraceném Českou poštou.
+
+Příklad automatizace:
+
+```yaml
+condition:
+  - condition: state
+    entity_id: sensor.balik_status
+    state: delivered
+```
+
 ### Atributy
 
-### Button
+Status senzor poskytuje také následující atributy:
 
-## Konfigurace - UI konfigurace:
+| Atribut | Popis |
+|---------|-------|
+| tracking_number | Podací číslo |
+| event_date | Datum poslední události |
+| zip | PSČ |
+| raw_status | Původní text stavu vrácený Českou poštou |
 
-## Jak najít přímo URL?
+---
 
-## Automatizace
+## Poznámky
 
-### Event: `X`
+- Integrace využívá veřejně dostupnou službu PostaOnline.
+- Aktualizace probíhá v nastaveném intervalu.
+- Interní enum stavy jsou stabilní a nezávislé na změnách formulací na webu České pošty.
 
-
-### Základní trigger
-
-###  Poznámky
-
-
-###  Příklad payloadu eventu
+---
 
 
 ## Hlášení chyb
