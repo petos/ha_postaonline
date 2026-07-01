@@ -79,6 +79,7 @@ class PostaBaseSensor(CoordinatorEntity,SensorEntity):
 
 
 STATUS_NOW_DELIVERING = "now_delivering"
+STATUS_RECEIVED_INFO = "received_info"
 STATUS_PREPARING = "preparing_to_delivery"
 STATUS_IN_TRANSIT = "in_transit"
 STATUS_DELIVERED = "delivered"
@@ -91,6 +92,7 @@ STATUS_RULES = [
     (r"\bdodani\s+zasilky\b", STATUS_DELIVERED),
     (r"\bpriprav", STATUS_PREPARING),
     (r"\bpreprav", STATUS_IN_TRANSIT),
+    (r"\bobdrzeny\s+udaje", STATUS_RECEIVED_INFO),
     (r"\bulozeni\s+zasilky\s+adresat\s+nezastizen\b", STATUS_STORED_MISSED_DELIVERY),
 ]
 
@@ -107,6 +109,7 @@ class PostaStatusSensor(PostaBaseSensor):
         STATUS_IN_TRANSIT,
         STATUS_DELIVERED,
         STATUS_STORED_MISSED_DELIVERY,
+        STATUS_RECEIVED_INFO,
         STATUS_UNKNOWN,
     ]
 

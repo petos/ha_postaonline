@@ -50,6 +50,7 @@ Status je implementován jako `enum` senzor.
 Možné hodnoty:
 
 - `preparing_to_delivery`
+- `received_info`
 - `now_delivering`
 - `in_transit`
 - `delivered`
