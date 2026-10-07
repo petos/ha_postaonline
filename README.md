@@ -1,3 +1,8 @@
+![Nejnovější dostupná verze balíčku](https://img.shields.io/github/v/release/petos/ha_postaonline)
+![Velikost repozitáře](https://img.shields.io/github/repo-size/petos/ha_postaonline)
+![Datum nejnovějšího commitu](https://img.shields.io/github/last-commit/petos/ha_postaonline)
+![Licence](https://img.shields.io/github/license/petos/ha_postaonline)
+
 # PostaOnline
 
 Integrace pro Home Assistant umožňující sledování zásilek České pošty prostřednictvím služby PostaOnline.
